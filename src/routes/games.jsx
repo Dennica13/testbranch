@@ -43,7 +43,7 @@ const Games = () => {
         <div>
             
             <input onChange={() => filterNames()}/>
-            <div>Please choose a game:</div>
+            <div>Please choose a game: asdasdasdadd</div>
             <ul>
               {getUsers(Users)}
             </ul>
