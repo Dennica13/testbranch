@@ -17,8 +17,6 @@ import Contacts from './routes/contacts';
 import Info from './routes/info';
 import Invoice from './routes/invoice';
 
-import Games from './routes/games';
-import Game from './routes/game';
 
 const store = createStore(reducer);
 
@@ -29,12 +27,29 @@ ReactDom.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App/>}>
-          <Route path="/games" element={<Games/>}>
-            <Route path=":gamesId" element={<Game/>} />
+          <Route path="contacts" element={<Contacts/>}/>
+          <Route path="info" element={<Info/>}>
+            <Route index
+              element={
+                <main style={{ padding: "1rem" }}>
+                  <p>Select an invoice</p>
+                </main>
+              }
+            />
+            <Route path=":invoiceId" element={<Invoice/>}/>
           </Route>
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
+    
   </Provider>
   , document.getElementById('root'));
 
